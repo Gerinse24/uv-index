@@ -22,6 +22,6 @@ for i in range(len(result)):
     else:
         print("Then: %s" % result[i].strip("</p>   </div>"))
 
-exit = input("Press X to exit")
+exit = input("Press X and then Enter to exit\n")
 if exit.lower() == "x":
     sys.exit()
