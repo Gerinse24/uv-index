@@ -1,27 +1,20 @@
 #! python3
 
-# uvindex.py - used to quickly grab a suburbs UV Index.
+# uvindex.py - used to quickly grab a Cities UV Index.
+# Currently only working for Australia.
+# Usage from command line: python uvindex.py city
+# city must be an acronym such as per for Perth or mel for Melbourne.
 
-import requests
-import re
+"""Please be advised that the data used for this script is provided by ARPANSA 
+and cannot be used for financial gain."""
+
+import xml.etree.ElementTree as ET
 import sys
 
-# make request to url using two command line arguments.
-# sys.argv[1] is the state and sys.argv[2] is the city.
-r = requests.get("http://www.bom.gov.au/places/%s/%s/forecast/" % (sys.argv[1], sys.argv[2]))
+tree = ET.parse('uvdata.xml') # this file is created when you run uvdata.py
+root = tree.getroot()
 
-# searches r.text for any regex matches
-# findall returns a list of all matches which will be stored in result
-result = re.findall("Sun protection .*", r.text)
-
-# iterate the length of result. result[0] will be the index for today.
-# strip the remaining HTML code from result and print to screen.
-for i in range(len(result)):
-    if i == 0:
-        print("Today: %s" % result[i].strip("</p>   </div>"))
-    else:
-        print("Then: %s" % result[i].strip("</p>   </div>"))
-
-exit = input("Press X and then Enter to exit\n")
-if exit.lower() == "x":
-    sys.exit()
+for i in range(len(root)):
+    if sys.argv[1] == root[i][0].text:
+        print("The UV index as of %s local time is %s" % (root[i][2].text, root[i][1].text))
+        break
