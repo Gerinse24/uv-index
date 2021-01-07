@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stations>
+  <location id="Adelaide">
+    <name>adl</name>
+    <index>0.0</index>
+    <time>7:28 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Alice Springs">
+    <name>ali</name>
+    <index>0.0</index>
+    <time>7:28 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Brisbane">
+    <name>bri</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Canberra">
+    <name>can</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Casey">
+    <name>cas</name>
+    <index>2.0</index>
+    <time>5:57 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:57</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Darwin">
+    <name>dar</name>
+    <index>0.0</index>
+    <time>7:29 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:59</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Davis">
+    <name>dav</name>
+    <index>3.0</index>
+    <time>4:57 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:57</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Emerald">
+    <name>emd</name>
+    <index>0.0</index>
+    <time>7:59 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:59</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Gold Coast">
+    <name>gco</name>
+    <index>0.0</index>
+    <time>7:59 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:59</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Kingston">
+    <name>kin</name>
+    <index>0.0</index>
+    <time>7:59 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:59</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Macquarie Island">
+    <name>mcq</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Mawson">
+    <name>maw</name>
+    <index>8.0</index>
+    <time>2:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Melbourne">
+    <name>mel</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Newcastle">
+    <name>new</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Perth">
+    <name>per</name>
+    <index>0.4</index>
+    <time>5:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Sydney">
+    <name>syd</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+  <location id="Townsville">
+    <name>tow</name>
+    <index>0.0</index>
+    <time>7:58 PM</time>
+    <date>8/12/2020</date>
+    <fulldate>Tuesday, 8 December 2020</fulldate>
+    <utcdatetime>2020/12/08 09:58</utcdatetime>
+    <status>ok</status>
+  </location>
+</stations>
