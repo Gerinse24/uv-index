@@ -1,15 +1,14 @@
 # uv-index
-This is a script that I use for gathering UV Radiation indexes.
+UV observations courtesy of ARPANSA. This data cannot be used for financial gain, as specified by Australian Radiation Protection and Nuclear Safety Agency.
+The aim of uv-index is to provide quick and dirty UV information. This so far is limited to providing the maximum uv level depending on which city and the time of day this data is downloaded. 
 
-Firstly, the data downloaded is provided by ARPANSA - an agency in the Australian Government. This data is provided under Freedom of Information and cannot be used for financial gain. 
+Functionality is split between three scripts for readability, and development.
 
-uvindex.py was written in Python 3 using xml.etree.ElementTree submodule for handling the xml file, the requests module to download the xml file, and the sys module for command line usage.
+# uvlocations.py
+This script has a single function `location_index(place)` which contains a dictionary of accepted locations as the `keys()`, and their corresponding index as the `values()` for when selenium interacts with a drop-down menu in uvdownload.py. Once the index is located and confirmed, `location_index(place)` will return the index so selenium automation can make the selection.
 
-# usage
-From CMD, make sure your current working directory contains the scripts you need: uvdata.py and uvindex.py.
-If you have not run uvdata.py before, make sure you run it before uvindex.py or you won't have the xml file and uvindex.py will not work.
-This can be done in your cwd as such: python uvdata.py
+# uvdownload.py
+This script will perform web automation by interacting with ARPANSA's API. The interactions are `move_to_element()`, `click()`, and `perform()` which are provided by `selenium.webdriver.common.action_chains`. They are used to make city selection from a drop-down menu, and then to `click()` the API's download button. The browser used for automation is MSEdge Chromium which you will need to download from [here](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/?tabs=python). uvdownload.py's success is intermittent, and this comes down to dealing with dynamic content.
 
-One that is done, you simply run uvindex.py with one argument: python uvindex.py city
-city must be an acronym of the cities data you want: python uvindex.py mel
-mel meaning Melbourne.
+# uvinformation.py 
+This script peforms actions on the CSV file downloaded by uvdownload.py. The `os.path.expanduser()` function from the `os` module is used to determine the user path, and `os.path.join` that with the string Downloads, this is then passed to `shutil.move()` along with the new destination.
