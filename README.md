@@ -5,10 +5,9 @@ The aim of uv-index is to provide quick and dirty UV information. This so far is
 Functionality is split between three scripts for readability, and development.
 
 # uvlocations.py
-This script has a single function `location_index(place)` which contains a dictionary of accepted locations as the `keys()`, and their corresponding index as the `values()` for when selenium interacts with a drop-down menu in uvdownload.py. Once the index is located and confirmed, `location_index(place)` will return the index so selenium automation can make the selection.
+This script has a single function `location_index(place)` which contains a dictionary of accepted locations as the `keys()`, and their corresponding API URL as the `values()` for the radars raw data. `location_index()` will return the value IF it is present in the dictionary.
 
 # uvdownload.py
-This script will perform web automation by interacting with ARPANSA's API. The interactions are `move_to_element()`, `click()`, and `perform()` which are provided by `selenium.webdriver.common.action_chains`. They are used to make city selection from a drop-down menu, and then to `click()` the API's download button. The browser used for automation is MSEdge Chromium which you will need to download from [here](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/?tabs=python). uvdownload.py's success is intermittent, and this comes down to dealing with dynamic content.
+This script contains most of the functionality but is incomplete as of right now. For now though, uvdownload.py uses the requests module to request the raw data from ARPANSA's API and the response data returned with the `.text` attribute is stored in variable `r`. A regex pattern is used to `findall()` the data that matches, and the garbage is split away through iterating the list of matches until we have a list of `measured` values. A `try and except` block is used to perform conditional checks on each measured value as not all measurements will contain floats - some may contain the word null as no measurement has been made yet.
 
-# uvinformation.py 
-This script peforms actions on the CSV file downloaded by uvdownload.py. The `os.path.expanduser()` function from the `os` module is used to determine the user path, and `os.path.join` that with the string Downloads, this is then passed to `shutil.move()` along with the new destination.
+# This documentation is incomplete, as the script is in early idea stage.
