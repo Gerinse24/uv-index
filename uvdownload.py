@@ -1,57 +1,37 @@
 #! python 3
 
-from msedge.selenium_tools import EdgeOptions, Edge
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
+import csv
 import uvlocations
-import time
+from datetime import date
+import requests
+import re
 
-# Configure options for driver.
-options = EdgeOptions()
-options.use_chromium = True
-# # TODO: Set download location for browser or get the users path user downloads
-# #       folder and move the csv file to the cwd. This could be done in another
-# #       script, possibly uvinformation.py
+# Grab current date.
+# Format today into correct_format string for use in request.
+today = date.today()
+correct_format = today.strftime("%Y-%m-%d")
 
-usr_input = input("City?\n")
-# Call driver at path with options argument.
-driver = Edge("C:\\code\\WebDrivers\\msedgedriver.exe", options=options)
-driver.get("https://uvdata.arpansa.gov.au/uvlevel")
+# A dict of radar locations is in the uvlocations.py script as locations.
+# key/value is city name/url. The URL is triggered through ARPANSA API.
+print(uvlocations.locations)
+usr_input = input("Enter city name:\n")
 
-# Locate Element which is drop-down list and make selection.
-element = WebDriverWait(driver, 10, 2).until(EC.presence_of_element_located((By.ID,
-'slctCategoryLocation')))
-"""uvlocations.py includes a function which contains the city names and their
-indexes for selection."""
-if type(element) == type(element):
-    drp = Select(element)
-    loc_id = uvlocations.location_index(usr_input)
-    time.sleep(10)
-    drp.select_by_index(loc_id)
+r = requests.get("https://uvdata.arpansa.gov.au/" + uvlocations.location_index(usr_input) + '&date=' + correct_format).text
 
-# This section is webbrowser automation to download a csv file.
-dlmenu = WebDriverWait(driver, 10, 2).until(EC.element_to_be_clickable((By.XPATH,
-'//*[@id="chartdiv"]/div/div[3]/ul/li/a')))
-actions = ActionChains(driver)
-actions.move_to_element(dlmenu)
-actions.click()
-actions.perform()
+pattern = re.compile('"\$\w+":"\w+","\w+":"\w+-\w+-\w+ \w+:\w+","\w+":\w+.\w+,"\w+":\w+.\w+')
+matches = re.findall(pattern, r)
 
-saveopt = WebDriverWait(driver, 10, 2).until(EC.element_to_be_clickable((By.XPATH,
-'//*[@id="chartdiv"]/div/div[3]/ul/li/ul/li[2]/a/span')))
-actions.move_to_element(saveopt)
-actions.click()
-actions.perform()
+measured = []
+for i in range(len(matches)):
+    datasplit = matches[i].split(',')
+    measured.append(datasplit[3].strip('"Measured":'))
 
-savecsv = WebDriverWait(driver, 10, 2).until(EC.element_to_be_clickable((By.XPATH,
-'//*[@id="chartdiv"]/div/div[3]/ul/li/ul/li[2]/ul/li[1]/a/span')))
-actions.move_to_element(savecsv)
-actions.click()
-actions.perform()
-
-time.sleep(10)
-driver.quit()
+maxuv = 0.0
+for t in range(len(measured)):
+    try:
+        if float(measured[t]) > maxuv:
+            maxuv = float(measured[t])
+    except ValueError:
+        # pass
+        break
+print(maxuv)
