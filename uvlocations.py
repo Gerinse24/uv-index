@@ -25,6 +25,6 @@ def location_index(place):
     if place in id_dict.keys():
         return id_dict[place]
 
-locations = ['Canberra', 'Newcastle', 'Sydney', 'Alice Springs', 'Darwin',
+cities = ['Canberra', 'Newcastle', 'Sydney', 'Alice Springs', 'Darwin',
 'Brisbane', 'Emerald', 'Gold Coast', 'Townsville', 'Adelaide', 'Kingston',
 'Melbourne', 'Perth', 'Casey', 'Davis', 'Macquarie Island', 'Mawson']
